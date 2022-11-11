@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Review your most recent movie</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+          <h3>Movies:</h3>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%= messages[i].movie %></span>
+              <span><%= messages[i].review %></span>
+              <!-- <span><%= messages[i].price * messages[i].tip %></span> -->
+              <!-- <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span> -->
+               <!-- <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span> -->
+               <span><i class="fa fa-trash-o" aria-hidden="true"></i></span> 
+               <input type="text" placeholder="Edit review" name="review">
+               <button class="reviewBtn">Submit</button>
+            </li>
+            
+  
+          <% } %>
+          </ul>
+
+          
+
+          <h2>Add movie</h2>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="text" placeholder="movie" name="movie">
+            <input type="text" placeholder="review" name="review">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
